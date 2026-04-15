@@ -10,8 +10,8 @@ License: ASL 2.0
 URL:     https://github.com/nginxinc/nginx-prometheus-exporter
 
 Source0: https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v%{version}/nginx-prometheus-exporter_%{version}_linux_amd64.tar.gz
-Source1: autogen_%{name}.unit
-Source2: autogen_%{name}.default
+Source1: %{name}.unit
+Source2: %{name}.default
 
 %{?systemd_requires}
 Requires(pre): shadow-utils
