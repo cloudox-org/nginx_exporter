@@ -2,25 +2,26 @@
 %global user prometheus
 %global group prometheus
 
-Name: artifactory_exporter
-Version: 1.16.1
+Name: nginx_exporter
+Version: 1.5.1
 Release: 1%{?dist}
-Summary: Prometheus exporter for JFrog Artifactory stats.
+Summary: NGINX Prometheus Exporter for NGINX and NGINX Plus.
 License: ASL 2.0
-URL:     https://github.com/peimanja/artifactory_exporter
+URL:     https://github.com/nginxinc/nginx-prometheus-exporter
 
-Source0: https://github.com/peimanja/artifactory_exporter/releases/download/v%{version}/%{name}-v%{version}-linux-amd64.tar.gz
-Source1: %{name}.unit
-Source2: %{name}.default
+Source0: https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v%{version}/nginx-prometheus-exporter_%{version}_linux_amd64.tar.gz
+Source1: autogen_%{name}.unit
+Source2: autogen_%{name}.default
 
 %{?systemd_requires}
 Requires(pre): shadow-utils
 
 %description
-Collects metrics about an Artifactory system
+NGINX Prometheus Exporter for NGINX and NGINX Plus.
 
 %prep
-%setup -q -D -c %{name}-v%{version}-linux-amd64
+%setup -q -D -c nginx-prometheus-exporter_%{version}_linux_amd64
+mv -v nginx-prometheus-exporter %{name}
 
 %build
 /bin/true
@@ -54,5 +55,5 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
-* Thu Apr 02 2026 Ivan Garcia <igarcia@cloudox.org> - 1.16.1
-- Initial packaging for the 1.16.1 branch
+* Thu Apr 15 2026 Ivan Garcia <igarcia@cloudox.org> - 1.5.1
+- Initial packaging for the 1.5.1 branch
