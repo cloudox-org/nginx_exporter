@@ -3,7 +3,7 @@
 %global group prometheus
 
 Name: nginx_exporter
-Version: 1.5.1
+Version: 1.5.3
 Release: 1%{?dist}
 Summary: NGINX Prometheus Exporter for NGINX and NGINX Plus.
 License: ASL 2.0
@@ -55,5 +55,7 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Tue Sep 22 2026 Ivan Garcia
+- Bump version to 1.5.3
 * Thu Apr 15 2026 Ivan Garcia <igarcia@cloudox.org> - 1.5.1
 - Initial packaging for the 1.5.1 branch
